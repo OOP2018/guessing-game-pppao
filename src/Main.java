@@ -7,11 +7,12 @@ public class Main {
 	public static void main(String[] args) {
 		// upper limit for secret number in guessing game
 		int upperBound = 100;
-		NumberGame game = new SampleGame(upperBound);
-		GameConsole ui = new GameConsole( );
+		NumberGame game = new PaoGame(upperBound);
+		GameSolver ui = new GameSolver( );
 		int solution = ui.play( game );
 		//TODO display the answer returned by play
-		System.out.println("play() returned "+solution);
+		System.out.println("The secret number is "+solution);
+		System.out.println("Count : " + game.getCount());
 		//TODO display how many guesses the user made
 	}
 }

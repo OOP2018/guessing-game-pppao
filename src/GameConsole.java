@@ -5,20 +5,30 @@ import java.util.Scanner;
  */
 public class GameConsole {
 
-	/** play the game. */
+	/** play the game by input the number you guess
+	 * It will show larger or smaller
+	 * Game finish if number correct 
+	 * 
+	 * @param NumberGame
+	 * @return The number correct */
 	public int play(NumberGame game) {
 		Scanner console = new Scanner(System.in);
-		
-		// describe the game
+		boolean correct = false ; 
+		int guess ;
+
 		System.out.println( game.toString() );
+
+		System.out.println( game.getMessage() );
 		
-		// This is just an example.
-		System.out.println( game.getMessage() );
+		do {
 		System.out.print("Your answer? ");
-		int guess = console.nextInt();
-		boolean correct = game.guess(guess);
+		guess = console.nextInt();
+		correct = game.guess(guess);
 		System.out.println( game.getMessage() );
-		return guess;
+		}while(!correct);
+		
+		return guess ;
+		
 	}
 	
 }
